@@ -1,0 +1,58 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
+import { ContactComponent } from './contact/contact.component';
+import { DemoComponent } from './demo/demo.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+//import { ProdectsComponent } from './prodects/prodects.component';
+//import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { LayoutComponent } from './layout/layout.component';
+import { AdminGuard } from './admin.guard';
+
+
+const routes: Routes = [
+  //Redireccion 
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full',
+      },
+      {
+        path: 'home',
+        // Modulo cargado
+        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+        //component: HomeComponent
+      },
+      {
+        path: 'produts',
+        loadChildren: () => import('./product/product.module').then(m => m.ProductModule)
+        //component: ProdectsComponent
+      },
+      {
+        path: 'contac',
+        canActivate: [AdminGuard], 
+        component: ContactComponent
+      }
+    ]
+  },
+  {
+    path: 'demo',
+    component: DemoComponent
+  },
+  // Runtas no encontradas
+  {
+    path: '**',
+    component: PageNotFoundComponent
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules
+  })],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

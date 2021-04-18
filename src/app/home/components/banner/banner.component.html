@@ -1,0 +1,16 @@
+<swiper 
+[slidesPerView]="1"
+[spaceBetween]="1"
+(swiper)="onSwiper($event)"
+(slideChange)="onSlideChange()"
+[navigation]="true"
+[pagination]="{ clickable: true }"
+[scrollbar]="{ draggable: true }">
+    <ng-container *ngFor="let slide of slides; index as i">
+            <ng-template swiperSlide *ngFor="let img of images">
+                <img [src]="img" alt="Imagen de banner">
+                {{ slide }}
+            </ng-template>
+    </ng-container>
+
+</swiper>

@@ -1,0 +1,43 @@
+<p>demo works!</p>
+<h1>{{title}}</h1>
+
+
+<input type="text" [(ngModel)]="title">
+<input type="text" [(ngModel)]="power">
+{{'Hola mundo'}}
+{{ 1 +2 }}
+{{ power |expomemtial }}
+<div *ngIf="title == '1'">
+  <h2>Se imprime el testo</h2>
+
+</div>
+<div *ngIf="title == 'Carlos'">
+  <h2>Este es Carlos</h2>
+
+</div>
+<div *ngIf="title == 'Julian'">
+  <h2>este es Julian</h2>
+
+</div>
+<div *ngIf="title == 'Andres'">
+  <h2>Este es Andres</h2>
+
+</div>
+
+<div [ngSwitch]="title">
+  <h2 *ngSwitchCase="'Carlos'">Este es {{ title }}</h2>
+  <h2 *ngSwitchCase="'Julian'">Este es {{ title }}</h2>
+  <h2 *ngSwitchCase="'Andres'">Este es {{ title }}</h2>
+  <h2 *ngSwitchDefault>No hay ningun match</h2>
+</div>
+
+<div *ngIf="title == '1'; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>Content to render when condition is true.</ng-template>
+<ng-template #elseBlock>Content to render when condition is false.</ng-template>
+<button (click)="addItem()">Add Item</button>
+<ul>
+  <li *ngIf="item.length === 0">La lista esta basia</li>
+  <li *ngFor="let name of item; index as i">
+    {{ i }} {{name}} <button (click)="deleteItem(i)">Borar</button>
+  </li>
+</ul>
