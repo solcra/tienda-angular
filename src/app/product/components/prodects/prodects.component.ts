@@ -10,18 +10,27 @@ import { ProductosService } from './../../../core/services/products/productos.se
 })
 export class ProdectsComponent implements OnInit {
 
-  products!:Product [];
+  products:Product [] = [];
 
   constructor(
     private productosService: ProductosService
   ) { }
 
   ngOnInit(): void {
-    this.products = this.productosService.getAllProducts();
+    //this.products = this.productosService.getAllProducts();
+    this.fetchProducts();
   }
 
   clickProducto(id: number) {
     console.log('Id del producto:'+ id)
+  }
+
+  fetchProducts() {
+    this.productosService.getAllProducts()
+    .subscribe(products => {
+      this.products = products;
+      console.log(products);
+    })
   }
   
 }

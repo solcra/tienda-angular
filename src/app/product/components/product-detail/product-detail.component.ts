@@ -19,10 +19,33 @@ export class ProductDetailComponent implements OnInit, SharedModule {
   ngOnInit(): void {
     this.route.params.subscribe((params: Params)=>{
       const id = params.id;
-      this.produc = this.productosService.getProduct(id);
+      this.fetchProduct(id)
+      //this.produc = this.productosService.getProduct(id);
       console.log(this.produc);
       console.log(id);
     });
+  }
+
+  fetchProduct(id: string){
+    this.productosService.getProduct(id)
+    .subscribe(product => {
+      this.produc = product;
+      console.log(product);
+    })
+  }
+
+  createProduct(){
+    const newProduct:Product = {
+      id: '232',
+      title: 'new granada',
+      image: 'assets/images/mug.png',
+      price: 3022,
+      description: 'Nuevo producto'
+    }
+    this.productosService.createProduct(newProduct)
+    .subscribe(product => {
+      console.log(product);
+    })
   }
 
 }

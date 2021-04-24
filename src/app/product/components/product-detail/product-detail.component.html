@@ -1,11 +1,13 @@
-<p>product-detail works!</p>
-<div>
-    <img [src]="produc.image" alt="">
-</div>
-<div>
-    <ul>
-        <li>Nombre: {{ produc.title }}</li>
-        <li>Precio: {{ produc.price | currency }}</li>
-    </ul>
-    <p>{{ produc.description }}</p>
+<div *ngIf="produc">
+    <div>
+        <img [src]="produc.image" alt="">
+    </div>
+    <div>
+        <ul>
+            <li>Nombre: {{ produc.title }}</li>
+            <li>Precio: {{ produc.price | currency }}</li>
+        </ul>
+        <p>{{ produc.description }}</p>
+    </div>
+    <button (click)="createProduct()">Enviar producto</button>
 </div>
