@@ -45,7 +45,26 @@ export class ProductDetailComponent implements OnInit, SharedModule {
     this.productosService.createProduct(newProduct)
     .subscribe(product => {
       console.log(product);
-    })
+    });
+  }
+
+  updateProducto(){
+    const updateProduct: Partial<Product> = {
+      title: 'new Vasquez',
+      price: 3022555,
+      description: 'Nuevo producto echo por Carlos'
+    }
+    this.productosService.updateProduct('232', updateProduct)
+    .subscribe(product => {
+      console.log(product);
+    });
+  }
+
+  deleteProducto(){
+    this.productosService.deleteProduct('232')
+    .subscribe(rta => {
+      console.log(rta);
+    });
   }
 
 }

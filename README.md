@@ -8,7 +8,16 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Code scaffolding
 
+## Testiar producion
+
+Run `ng build --prod`
+
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Ambientes de producion
+
+ng build -c=nombre del ambiente  
+ng serve -c=nombre del ambiente
 
 ## Build
 
