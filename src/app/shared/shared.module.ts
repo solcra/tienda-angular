@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms'
 
 import { ExpomemtialPipe } from './pipes/expomemtial/expomemtial.pipe';
 import { HighlightDirective } from './directivos/highlight/highlight.directive';
@@ -25,7 +26,8 @@ import { MaterialModule } from './../material/material.module'
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }
