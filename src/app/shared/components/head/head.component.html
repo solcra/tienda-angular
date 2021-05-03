@@ -7,7 +7,7 @@
                 <a mat-button href="/demo" routerLinkActive="active">Demo</a>
                 <a mat-button href="/contact" routerLinkActive="active">Contact</a>
             </nav>
-            <a mat-raised-button [matBadge]="total" matBadgeColor="warn">
+            <a mat-raised-button [matBadge]="total$ | async" matBadgeColor="warn">
                 <mat-icon>
                     shopping_cart
                 </mat-icon>
