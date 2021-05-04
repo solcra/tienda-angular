@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms'
-
 import { ExpomemtialPipe } from './pipes/expomemtial/expomemtial.pipe';
 import { HighlightDirective } from './directivos/highlight/highlight.directive';
 import { HeadComponent } from './components/head/head.component';
 import { FooterComponent } from './components/footer/footer.component';
-
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { MaterialModule } from './../material/material.module'
 
 
@@ -27,7 +26,8 @@ import { MaterialModule } from './../material/material.module'
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ]
 })
 export class SharedModule { }

@@ -13,6 +13,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { LayoutModule } from '@angular/cdk/layout';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   declarations: [],
@@ -29,7 +30,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatTableModule,
     MatSidenavModule,
     MatListModule,
-    LayoutModule
+    LayoutModule,
+    MatStepperModule
   ],
   exports: [
     MatButtonModule,
@@ -43,7 +45,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatTableModule,
     MatSidenavModule,
     MatListModule,
-    LayoutModule
+    LayoutModule,
+    MatStepperModule
   ]
 })
 export class MaterialModule { }

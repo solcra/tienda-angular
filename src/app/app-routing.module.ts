@@ -6,7 +6,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 //import { ProdectsComponent } from './prodects/prodects.component';
 //import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { LayoutComponent } from './layout/layout.component';
-import { AdminGuard } from './admin.guard';
 
 
 const routes: Routes = [
@@ -36,6 +35,10 @@ const routes: Routes = [
         //canActivate: [AdminGuard], 
         //component: ContactComponent
         loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
+      },
+      {
+        path: 'order',
+        loadChildren: () => import('./order/order.module').then(m => m.OrderModule)
       }
     ]
   },
